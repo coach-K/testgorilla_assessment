@@ -33,5 +33,9 @@ public class WordService {
     public Word save(Word word) {
         return this.repository.save(word);
     }
+
+    public List<Word> findWordByRelation(String relation) {
+        return this.repository.findWordByRelation(relation);
+    }
     
 }
