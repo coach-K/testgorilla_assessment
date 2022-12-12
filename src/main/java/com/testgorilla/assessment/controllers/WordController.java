@@ -59,5 +59,11 @@ public class WordController {
     public List<Word> getAllWords(@RequestParam("relation") String relation) {
         return this.service.findWordByRelation(relation);
     }
+
+    @GetMapping(params = {"source", "target"})
+    public List<Word> searchWords(@RequestParam("source") String source, @RequestParam("target") String target) {
+        //TODO: Search by source and target
+        return this.service.searchWords(source, target);
+    }
     
 }

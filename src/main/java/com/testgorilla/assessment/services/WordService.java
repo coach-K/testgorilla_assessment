@@ -1,6 +1,7 @@
 package com.testgorilla.assessment.services;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -40,6 +41,11 @@ public class WordService {
 
     public Optional<Word> findWordByWord1AndWord2(String word1, String word2) {
         return this.repository.findWordByWord1AndWord2(word1, word2);
+    }
+
+    public List<Word> searchWords(String source, String target) {
+        //TODO: Search by source and target
+        return null;
     }
     
 }
