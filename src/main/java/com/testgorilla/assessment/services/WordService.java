@@ -37,5 +37,9 @@ public class WordService {
     public List<Word> findWordByRelation(String relation) {
         return this.repository.findWordByRelation(relation);
     }
+
+    public Optional<Word> findWordByWord1AndWord2(String word1, String word2) {
+        return this.repository.findWordByWord1AndWord2(word1, word2);
+    }
     
 }

@@ -1,6 +1,7 @@
 package com.testgorilla.assessment.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -35,6 +36,12 @@ public class WordController {
         || !word.getRelation().matches("[a-zA-Z\\s]*")) {
             return new ResponseEntity<>(new CustomError("Words cannot contain special characters or numeric"), HttpStatus.BAD_REQUEST);
         }
+
+        Optional<Word> optionalWord = this.service.findWordByWord1AndWord2(word.getWord1(), word.getWord2());
+        if (optionalWord.isPresent()) {
+            return new ResponseEntity<>(new CustomError("A relationship has been added for this words"), HttpStatus.BAD_REQUEST);
+        }
+
         Word newWord = new Word(
             word.getWord1().toLowerCase().trim(), 
             word.getWord2().toLowerCase().trim(), 
