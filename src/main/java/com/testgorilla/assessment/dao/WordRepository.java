@@ -12,7 +12,5 @@ public interface WordRepository extends CrudRepository<Word, Long> {
 
     Optional<Word> findWordByWord1AndWord2(String word1, String word2);
 
-    List<Word> findWordByWord1Contains(String contain);
-
-    List<Word> findWordByRelationContains(String contain);
+    List<Word> findWordByWord1ContainsAndRelationContains(String word1, String relation);
 }

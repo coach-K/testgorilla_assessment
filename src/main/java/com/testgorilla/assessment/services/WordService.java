@@ -43,9 +43,8 @@ public class WordService {
         return this.repository.findWordByWord1AndWord2(word1, word2);
     }
 
-    public List<Word> searchWords(String source, String target) {
-        //TODO: Search by source and target
-        return null;
+    public List<Word> findWordByWord1AndRelationContains(String source, String target) {
+        return this.repository.findWordByWord1ContainsAndRelationContains(source, target);
     }
     
 }
