@@ -26,7 +26,12 @@ public class WordController {
 
     @PostMapping
     public Word postWord(@RequestBody Word word) {
-        return this.service.save(word);
+        Word newWord = new Word(
+            word.getWord1().toLowerCase().trim(), 
+            word.getWord2().toLowerCase().trim(), 
+            word.getRelation().toLowerCase().trim()
+            );
+        return this.service.save(newWord);
     }
 
     @GetMapping
